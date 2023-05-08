@@ -10,6 +10,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/feature-tracker" />
+            <option value="$PROJECT_DIR$/feature-tracker/tracker-data" />
+            <option value="$PROJECT_DIR$/feature-tracker/tracker-domain" />
+            <option value="$PROJECT_DIR$/feature-tracker/tracker-presentation" />
+            <option value="$PROJECT_DIR$/onboarding" />
+            <option value="$PROJECT_DIR$/onboarding/onboarding-domain" />
+            <option value="$PROJECT_DIR$/onboarding/onboarding-presentation" />
           </set>
         </option>
       </GradleProjectSettings>
