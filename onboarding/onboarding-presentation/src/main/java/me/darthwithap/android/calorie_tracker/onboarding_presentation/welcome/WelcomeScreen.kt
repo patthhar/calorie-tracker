@@ -9,14 +9,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import  me.darthwithap.android.calorie_tracker.core.R
+import me.darthwithap.android.calorie_tracker.core.navigation.Route
+import me.darthwithap.android.calorie_tracker.core.util.UiEvent
 import me.darthwithap.android.calorie_tracker.core_ui.LocalDimensions
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.components.OutlinedActionButton
 
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(
+  onNavigate: (UiEvent.Navigate) -> Unit
+) {
   val dimens = LocalDimensions.current
   Column(
-    modifier = Modifier.fillMaxSize()
+    modifier = Modifier
+      .fillMaxSize()
       .padding(LocalDimensions.current.base),
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally
@@ -38,7 +43,7 @@ fun WelcomeScreen() {
       textPadding = dimens.small,
       isEnabled = true
     ) {
-      // TODO ON CLICK
+      onNavigate(UiEvent.Navigate(Route.Age))
     }
   }
 }
