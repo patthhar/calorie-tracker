@@ -1,5 +1,3 @@
-import Test
-
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
@@ -38,22 +36,22 @@ dependencies {
   kapt DaggerHilt.hiltCompiler
   implementation DaggerHilt.hiltAndroid
 
-  testImplementation Test.junit4
+  testImplementation Tests.junit4
   testImplementation AndroidTest.junitAndroidExt
-  testImplementation Test.truth
-  testImplementation Test.coroutines
-  testImplementation Test.turbine
+  testImplementation Tests.truth
+  testImplementation Tests.coroutines
+  testImplementation Tests.turbine
   testImplementation AndroidTest.composeUiTest
-  testImplementation Test.mockk
-  testImplementation Test.mockWebServer
+  testImplementation Tests.mockk
+  testImplementation Tests.mockWebServer
 
-  androidTestImplementation Test.junit4
+  androidTestImplementation Tests.junit4
   androidTestImplementation AndroidTest.junitAndroidExt
-  androidTestImplementation Test.truth
-  androidTestImplementation Test.coroutines
-  androidTestImplementation Test.turbine
+  androidTestImplementation Tests.truth
+  androidTestImplementation Tests.coroutines
+  androidTestImplementation Tests.turbine
   androidTestImplementation AndroidTest.composeUiTest
-  androidTestImplementation Test.mockk
-  androidTestImplementation Test.mockWebServer
-  androidTestImplementation Test.hiltTest
+  androidTestImplementation Tests.mockk
+  androidTestImplementation Tests.mockWebServer
+  androidTestImplementation Tests.hiltTest
 }

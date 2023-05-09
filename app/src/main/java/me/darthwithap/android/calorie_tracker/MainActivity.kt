@@ -3,6 +3,7 @@ package me.darthwithap.android.calorie_tracker
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import me.darthwithap.android.calorie_tracker.onboarding_presentation.welcome.WelcomeScreen
 import me.darthwithap.android.calorie_tracker.ui.theme.CalorieTrackerTheme
 
 class MainActivity : ComponentActivity() {
@@ -10,6 +11,7 @@ class MainActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       CalorieTrackerTheme {
+        WelcomeScreen()
       }
     }
   }
