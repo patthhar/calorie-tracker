@@ -8,6 +8,7 @@ plugins {
   id(Build.androidApplication) version Build.gradleVersion apply false
   id(Build.androidLibrary) version Build.gradleVersion apply false
   id(Kotlin.android) version Kotlin.version apply false
+  id(DaggerHilt.hiltGradlePlugin) version DaggerHilt.version apply false
   id(Kotlin.jvm) version Kotlin.jvmVersion apply false
 }
 

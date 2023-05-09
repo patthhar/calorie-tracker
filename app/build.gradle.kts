@@ -120,3 +120,6 @@ dependencies {
   kaptAndroidTest(DaggerHilt.hiltCompiler)
   debugImplementation(AndroidTest.composeUiManifest)
 }
+kapt {
+  correctErrorTypes = true
+}
