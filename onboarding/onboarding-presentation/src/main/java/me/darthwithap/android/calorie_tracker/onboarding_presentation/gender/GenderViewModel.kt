@@ -33,7 +33,7 @@ class GenderViewModel @Inject constructor(
     viewModelScope.launch {
       prefs.saveGender(selectedGender)
       // TODO: Add OnSuccess callback that will be passed in the Activity and then navigate
-      _uiEvent.send(UiEvent.Navigate(Route.Activity))
+      _uiEvent.send(UiEvent.Navigate(Route.Age))
     }
   }
 
