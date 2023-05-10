@@ -7,11 +7,14 @@ import androidx.compose.material.Text
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
 import me.darthwithap.android.calorie_tracker.core.navigation.Route
 import me.darthwithap.android.calorie_tracker.navigation.navigate
+import me.darthwithap.android.calorie_tracker.onboarding_presentation.gender.GenderScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.welcome.WelcomeScreen
 import me.darthwithap.android.calorie_tracker.ui.theme.CalorieTrackerTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -26,7 +29,9 @@ class MainActivity : ComponentActivity() {
           composable(Route.Age) {
             Text(text = "Age")
           }
-          composable(Route.Gender) {}
+          composable(Route.Gender) {
+            GenderScreen(onNavigate = navController::navigate)
+          }
           composable(Route.Goal) {}
           composable(Route.Height) {}
           composable(Route.NutrientGoal) {}

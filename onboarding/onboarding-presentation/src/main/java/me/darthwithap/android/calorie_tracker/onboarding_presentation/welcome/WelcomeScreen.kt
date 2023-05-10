@@ -43,7 +43,7 @@ fun WelcomeScreen(
       textPadding = dimens.small,
       isEnabled = true
     ) {
-      onNavigate(UiEvent.Navigate(Route.Age))
+      onNavigate(UiEvent.Navigate(Route.Gender))
     }
   }
 }
