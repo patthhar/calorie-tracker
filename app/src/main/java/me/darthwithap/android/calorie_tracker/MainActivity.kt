@@ -33,6 +33,7 @@ class MainActivity : ComponentActivity() {
             GenderScreen(onNavigate = navController::navigate)
           }
           composable(Route.Goal) {}
+          composable(Route.Weight) {}
           composable(Route.Height) {}
           composable(Route.NutrientGoal) {}
           composable(Route.Search) {}

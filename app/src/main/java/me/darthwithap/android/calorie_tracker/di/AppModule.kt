@@ -9,6 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import me.darthwithap.android.calorie_tracker.core.data.preferences.DefaultPreferences
 import me.darthwithap.android.calorie_tracker.core.domain.preferences.Preferences
+import me.darthwithap.android.calorie_tracker.core.domain.usecases.FilterOutDigits
 import javax.inject.Singleton
 
 @Module
@@ -25,5 +26,11 @@ object AppModule {
   @Singleton
   fun providePreferences(sharedPrefs: SharedPreferences): Preferences {
     return DefaultPreferences(sharedPrefs)
+  }
+
+  @Provides
+  @Singleton
+  fun provideFilterOutDigitsUseCase(): FilterOutDigits {
+    return FilterOutDigits()
   }
 }
