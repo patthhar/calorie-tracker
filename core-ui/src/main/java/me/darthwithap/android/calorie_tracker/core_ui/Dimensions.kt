@@ -26,10 +26,11 @@ data class TextDimensions(
   val base: TextUnit = 14.sp,
   val medium: TextUnit = 16.sp,
   val big: TextUnit = 20.sp,
-  val large: TextUnit = 124.sp,
+  val large: TextUnit = 24.sp,
   val xl: TextUnit = 26.sp,
   val xxl: TextUnit = 34.sp,
-  val enormous: TextUnit = 43.sp,
+  val huge: TextUnit = 43.sp,
+  val enormous: TextUnit = 56.sp
 )
 
 val TextSizes = compositionLocalOf {
