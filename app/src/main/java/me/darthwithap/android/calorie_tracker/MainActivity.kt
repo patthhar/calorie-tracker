@@ -19,6 +19,7 @@ import me.darthwithap.android.calorie_tracker.onboarding_presentation.age.AgeScr
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.gender.GenderScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.goal.GoalScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.height.HeightScreen
+import me.darthwithap.android.calorie_tracker.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.weight.WeightScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.welcome.WelcomeScreen
 import me.darthwithap.android.calorie_tracker.ui.theme.CalorieTrackerTheme
@@ -68,7 +69,10 @@ class MainActivity : ComponentActivity() {
                 )
               }
               composable(Route.NutrientGoal) {
-
+                NutrientGoalScreen(
+                  scaffoldState = scaffoldState,
+                  onNavigate = navController::navigate
+                )
               }
               composable(Route.Search) {}
               composable(Route.TrackerOverview) {}
