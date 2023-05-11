@@ -1,4 +1,4 @@
-package me.darthwithap.android.calorie_tracker.onboarding_presentation.gender
+package me.darthwithap.android.calorie_tracker.onboarding_presentation.activity
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -12,15 +12,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import me.darthwithap.android.calorie_tracker.core.R
-import me.darthwithap.android.calorie_tracker.core.domain.models.Gender
+import me.darthwithap.android.calorie_tracker.core.domain.models.ActivityLevel
 import me.darthwithap.android.calorie_tracker.core.util.UiEvent
 import me.darthwithap.android.calorie_tracker.core_ui.LocalDimensions
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.components.OutlinedActionButton
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.components.SelectableButton
 
 @Composable
-fun GenderScreen(
-  viewModel: GenderViewModel = hiltViewModel(),
+fun ActivityLevelScreen(
+  viewModel: ActivityLevelViewModel = hiltViewModel(),
   onNavigate: (UiEvent.Navigate) -> Unit
 ) {
   val dimens = LocalDimensions.current
@@ -48,29 +48,39 @@ fun GenderScreen(
       horizontalAlignment = Alignment.CenterHorizontally
     ) {
       Text(
-        text = stringResource(id = R.string.whats_your_gender),
+        text = stringResource(id = R.string.whats_your_activity_level),
         style = MaterialTheme.typography.h3
       )
       Spacer(modifier = Modifier.height(dimens.medium))
       Row {
         SelectableButton(
-          text = stringResource(id = R.string.male),
+          text = stringResource(id = R.string.low),
           color = MaterialTheme.colors.primary,
           selectedTextColor = Color.White,
-          isSelected = viewModel.selectedGender is Gender.Male,
+          isSelected = viewModel.selectedActivity is ActivityLevel.Low,
           textStyle = MaterialTheme.typography.button.copy(fontWeight = FontWeight.Medium)
         ) {
-          viewModel.onGenderClick(Gender.Male)
+          viewModel.onActivityLevelClick(ActivityLevel.Low)
         }
         Spacer(modifier = Modifier.width(dimens.small))
         SelectableButton(
-          text = stringResource(id = R.string.female),
+          text = stringResource(id = R.string.medium),
           color = MaterialTheme.colors.primary,
           selectedTextColor = Color.White,
-          isSelected = viewModel.selectedGender is Gender.Female,
+          isSelected = viewModel.selectedActivity is ActivityLevel.Medium,
           textStyle = MaterialTheme.typography.button.copy(fontWeight = FontWeight.Medium)
         ) {
-          viewModel.onGenderClick(Gender.Female)
+          viewModel.onActivityLevelClick(ActivityLevel.Medium)
+        }
+        Spacer(modifier = Modifier.width(dimens.small))
+        SelectableButton(
+          text = stringResource(id = R.string.high),
+          color = MaterialTheme.colors.primary,
+          selectedTextColor = Color.White,
+          isSelected = viewModel.selectedActivity is ActivityLevel.High,
+          textStyle = MaterialTheme.typography.button.copy(fontWeight = FontWeight.Medium)
+        ) {
+          viewModel.onActivityLevelClick(ActivityLevel.High)
         }
       }
     }

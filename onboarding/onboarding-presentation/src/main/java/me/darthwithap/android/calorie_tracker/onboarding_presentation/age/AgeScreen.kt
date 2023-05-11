@@ -63,7 +63,9 @@ fun AgeScreen(
       )
     }
     OutlinedActionButton(
-      modifier = Modifier.align(Alignment.BottomEnd),
+      modifier = Modifier
+        .padding(end = dimens.medium, bottom = dimens.medium)
+        .align(Alignment.BottomEnd),
       text = stringResource(id = R.string.next),
       isEnabled = true,
     ) {

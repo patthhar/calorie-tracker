@@ -14,8 +14,12 @@ import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import me.darthwithap.android.calorie_tracker.core.navigation.Route
 import me.darthwithap.android.calorie_tracker.navigation.navigate
+import me.darthwithap.android.calorie_tracker.onboarding_presentation.activity.ActivityLevelScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.age.AgeScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.gender.GenderScreen
+import me.darthwithap.android.calorie_tracker.onboarding_presentation.goal.GoalScreen
+import me.darthwithap.android.calorie_tracker.onboarding_presentation.height.HeightScreen
+import me.darthwithap.android.calorie_tracker.onboarding_presentation.weight.WeightScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.welcome.WelcomeScreen
 import me.darthwithap.android.calorie_tracker.ui.theme.CalorieTrackerTheme
 
@@ -36,7 +40,9 @@ class MainActivity : ComponentActivity() {
               navController = navController,
               startDestination = Route.Welcome
             ) {
-              composable(Route.Activity) {}
+              composable(Route.Activity) {
+                ActivityLevelScreen(onNavigate = navController::navigate)
+              }
               composable(Route.Age) {
                 AgeScreen(
                   scaffoldState = scaffoldState,
@@ -46,10 +52,24 @@ class MainActivity : ComponentActivity() {
               composable(Route.Gender) {
                 GenderScreen(onNavigate = navController::navigate)
               }
-              composable(Route.Goal) {}
-              composable(Route.Weight) {}
-              composable(Route.Height) {}
-              composable(Route.NutrientGoal) {}
+              composable(Route.Goal) {
+                GoalScreen(onNavigate = navController::navigate)
+              }
+              composable(Route.Weight) {
+                WeightScreen(
+                  scaffoldState = scaffoldState,
+                  onNavigate = navController::navigate
+                )
+              }
+              composable(Route.Height) {
+                HeightScreen(
+                  scaffoldState = scaffoldState,
+                  onNavigate = navController::navigate
+                )
+              }
+              composable(Route.NutrientGoal) {
+
+              }
               composable(Route.Search) {}
               composable(Route.TrackerOverview) {}
               composable(Route.Welcome) {
