@@ -1,9 +1,12 @@
 package me.darthwithap.android.calorie_tracker.tracker_data.di
 
+import android.app.Application
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import me.darthwithap.android.calorie_tracker.tracker_data.local.TrackerDatabase
 import me.darthwithap.android.calorie_tracker.tracker_data.remote.OpenFoodApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -35,5 +38,15 @@ object TrackerDataModule {
       .client(okHttpClient)
       .build()
       .create()
+  }
+
+  @Provides
+  @Singleton
+  fun provideTrackerDatabase(app: Application): TrackerDatabase {
+    return Room.databaseBuilder(
+      app,
+      TrackerDatabase::class.java,
+      "tracker.db"
+    ).build()
   }
 }
