@@ -36,7 +36,7 @@ class TrackerRepositoryImpl @Inject constructor(
     }
   }
 
-  override suspend fun insertTrackedFood(food: TrackedFood) {
+  override suspend fun upsertTrackedFood(food: TrackedFood) {
     dao.upsertTrackedFood(food.toEntity())
   }
 

@@ -60,4 +60,5 @@ object TrackerDataModule {
   ): TrackerRepository {
     return TrackerRepositoryImpl(api, db)
   }
+
 }
