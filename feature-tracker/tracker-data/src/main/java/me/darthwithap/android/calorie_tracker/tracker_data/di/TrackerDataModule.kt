@@ -8,6 +8,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import me.darthwithap.android.calorie_tracker.tracker_data.local.TrackerDatabase
 import me.darthwithap.android.calorie_tracker.tracker_data.remote.OpenFoodApi
+import me.darthwithap.android.calorie_tracker.tracker_data.repository.TrackerRepositoryImpl
+import me.darthwithap.android.calorie_tracker.tracker_domain.repository.TrackerRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -48,5 +50,14 @@ object TrackerDataModule {
       TrackerDatabase::class.java,
       "tracker.db"
     ).build()
+  }
+
+  @Provides
+  @Singleton
+  fun provideTrackerRepository(
+    api: OpenFoodApi,
+    db: TrackerDatabase
+  ): TrackerRepository {
+    return TrackerRepositoryImpl(api, db)
   }
 }
