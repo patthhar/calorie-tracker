@@ -8,6 +8,7 @@ import androidx.compose.ui.unit.sp
 
 data class Dimensions(
   val none: Dp = 0.dp,
+  val min: Dp = 1.dp,
   val xs: Dp = 2.dp,
   val small: Dp = 4.dp,
   val regular: Dp = 6.dp,
