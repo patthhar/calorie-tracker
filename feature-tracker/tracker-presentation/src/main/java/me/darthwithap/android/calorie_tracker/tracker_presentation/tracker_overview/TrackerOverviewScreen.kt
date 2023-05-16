@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -41,6 +42,14 @@ fun TrackerOverviewScreen(
           .padding(horizontal = dimens.medium)
       )
       Spacer(modifier = Modifier.height(dimens.medium))
+    }
+    items(state.meals) { meal ->
+      ExpandableMeal(
+        meal = meal,
+        onToggleClick = { viewModel.onEvent(TrackerOverviewEvent.OnToggleMealClick(meal)) },
+        content = { // TODO
+        }, modifier = Modifier.fillMaxWidth()
+      )
     }
   }
 }

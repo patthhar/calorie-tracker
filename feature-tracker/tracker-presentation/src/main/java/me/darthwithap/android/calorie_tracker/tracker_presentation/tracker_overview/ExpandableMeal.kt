@@ -83,6 +83,7 @@ fun ExpandableMeal(
                 id = R.string.grams
               )
             )
+            Spacer(modifier = Modifier.width(dimens.small))
             NutrientInfo(
               name = stringResource(id = R.string.protein),
               amount = meal.protein,
@@ -90,6 +91,7 @@ fun ExpandableMeal(
                 id = R.string.grams
               )
             )
+            Spacer(modifier = Modifier.width(dimens.small))
             NutrientInfo(
               name = stringResource(id = R.string.fat),
               amount = meal.fat,
