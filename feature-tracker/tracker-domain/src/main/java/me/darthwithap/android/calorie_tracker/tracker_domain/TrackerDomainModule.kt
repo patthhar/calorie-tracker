@@ -48,7 +48,6 @@ object TrackerDomainModule {
       deleteTrackedFood = DeleteTrackedFood(repository),
       calculateMealNutrients = CalculateMealNutrients(
         preferences,
-        calculateBmr,
         dailyCaloriesRequirement
       )
     )

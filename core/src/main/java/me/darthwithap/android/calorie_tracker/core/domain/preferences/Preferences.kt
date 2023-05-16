@@ -17,6 +17,8 @@ interface Preferences {
   fun saveFatPercentage(percentage: Float)
 
   fun loadUserInfo(): UserInfo
+  fun saveShouldShowOnboarding(show: Boolean)
+  fun loadShouldShowOnboarding(): Boolean
 
   companion object {
     const val KEY_GENDER = "gender"
@@ -28,5 +30,6 @@ interface Preferences {
     const val KEY_CARB_PERCENTAGE = "carb_percentage"
     const val KEY_PROTEIN_PERCENTAGE = "protein_percentage"
     const val KEY_FAT_PERCENTAGE = "fat_percentage"
+    const val KEY_SHOULD_SHOW_ONBOARDING = "should_show_onboarding"
   }
 }

@@ -7,7 +7,6 @@ import kotlin.math.roundToInt
 
 class CalculateMealNutrients(
   private val preferences: Preferences,
-  private val calculateBmr: CalculateBmr,
   private val dailyCaloriesRequirement: DailyCaloriesRequirement
 ) {
 

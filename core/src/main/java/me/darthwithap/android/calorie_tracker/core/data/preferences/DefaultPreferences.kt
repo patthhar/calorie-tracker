@@ -48,8 +48,8 @@ class DefaultPreferences(
 
   override fun loadUserInfo(): UserInfo {
     sharedPrefs.apply {
-      val userInfo = with(Preferences) {
-        return@with UserInfo(
+      return with(Preferences) {
+        val userInfo = UserInfo(
           gender = Gender.fromString(getString(KEY_GENDER, null) ?: Gender.Male.name),
           age = getInt(KEY_AGE, 0),
           weight = getFloat(KEY_WEIGHT, 0f),
@@ -64,8 +64,19 @@ class DefaultPreferences(
           proteinPercentage = getFloat(KEY_PROTEIN_PERCENTAGE, 15f),
           fatPercentage = getFloat(KEY_FAT_PERCENTAGE, 20f)
         )
+        userInfo
       }
-      return userInfo
     }
+  }
+
+  override fun saveShouldShowOnboarding(show: Boolean) {
+    sharedPrefs.edit()
+      .putBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, show)
+      .apply()
+  }
+
+  override fun loadShouldShowOnboarding(): Boolean {
+    return sharedPrefs.getBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, true)
+
   }
 }
