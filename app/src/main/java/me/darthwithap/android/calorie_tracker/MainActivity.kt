@@ -22,6 +22,7 @@ import me.darthwithap.android.calorie_tracker.onboarding_presentation.height.Hei
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.weight.WeightScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.welcome.WelcomeScreen
+import me.darthwithap.android.calorie_tracker.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import me.darthwithap.android.calorie_tracker.ui.theme.CalorieTrackerTheme
 
 @AndroidEntryPoint
@@ -75,7 +76,9 @@ class MainActivity : ComponentActivity() {
                 )
               }
               composable(Route.Search) {}
-              composable(Route.TrackerOverview) {}
+              composable(Route.TrackerOverview) {
+                TrackerOverviewScreen(onNavigate = navController::navigate)
+              }
               composable(Route.Welcome) {
                 WelcomeScreen(onNavigate = navController::navigate)
               }
