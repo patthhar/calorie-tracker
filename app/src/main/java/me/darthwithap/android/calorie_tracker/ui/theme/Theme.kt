@@ -7,10 +7,17 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
+import me.darthwithap.android.calorie_tracker.core_ui.BrightGreen
+import me.darthwithap.android.calorie_tracker.core_ui.DarkGray
+import me.darthwithap.android.calorie_tracker.core_ui.DarkGreen
 import me.darthwithap.android.calorie_tracker.core_ui.Dimensions
+import me.darthwithap.android.calorie_tracker.core_ui.LightGray
 import me.darthwithap.android.calorie_tracker.core_ui.LocalDimensions
+import me.darthwithap.android.calorie_tracker.core_ui.MediumGray
+import me.darthwithap.android.calorie_tracker.core_ui.Orange
 import me.darthwithap.android.calorie_tracker.core_ui.TextDimensions
 import me.darthwithap.android.calorie_tracker.core_ui.TextSizes
+import me.darthwithap.android.calorie_tracker.core_ui.TextWhite
 
 private val DarkColorPalette = darkColors(
   primary = BrightGreen,

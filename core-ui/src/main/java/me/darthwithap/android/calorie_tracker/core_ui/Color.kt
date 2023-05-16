@@ -1,4 +1,4 @@
-package me.darthwithap.android.calorie_tracker.ui.theme
+package me.darthwithap.android.calorie_tracker.core_ui
 
 import androidx.compose.ui.graphics.Color
 
