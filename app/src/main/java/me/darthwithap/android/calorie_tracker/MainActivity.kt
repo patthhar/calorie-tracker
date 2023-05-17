@@ -8,9 +8,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import dagger.hilt.android.AndroidEntryPoint
 import me.darthwithap.android.calorie_tracker.core.navigation.Route
 import me.darthwithap.android.calorie_tracker.navigation.navigate
@@ -22,6 +24,7 @@ import me.darthwithap.android.calorie_tracker.onboarding_presentation.height.Hei
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.weight.WeightScreen
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.welcome.WelcomeScreen
+import me.darthwithap.android.calorie_tracker.tracker_presentation.search.SearchScreen
 import me.darthwithap.android.calorie_tracker.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import me.darthwithap.android.calorie_tracker.ui.theme.CalorieTrackerTheme
 
@@ -75,7 +78,37 @@ class MainActivity : ComponentActivity() {
                   onNavigate = navController::navigate
                 )
               }
-              composable(Route.Search) {}
+              composable(
+                route = Route.Search + "/{mealName}/{day}/{month}/{year}",
+                arguments = listOf(
+                  navArgument("mealName") {
+                    type = NavType.StringType
+                  },
+                  navArgument("day") {
+                    type = NavType.IntType
+                  },
+                  navArgument("month") {
+                    type = NavType.IntType
+                  },
+                  navArgument("year") {
+                    type = NavType.IntType
+                  },
+                )
+              ) {
+                val mealName = it.arguments?.getString("mealName")!!
+                val day = it.arguments?.getInt("day")!!
+                val month = it.arguments?.getInt("month")!!
+                val year = it.arguments?.getInt("year")!!
+                SearchScreen(
+                  scaffoldState = scaffoldState,
+                  mealName = mealName,
+                  dayOfMonth = day,
+                  month = month,
+                  year = year
+                ) {
+                  navController.navigateUp()
+                }
+              }
               composable(Route.TrackerOverview) {
                 TrackerOverviewScreen(onNavigate = navController::navigate)
               }
