@@ -66,7 +66,7 @@ fun NutrientBarInfo(
         drawArc(
           color = color,
           startAngle = 90f,
-          sweepAngle = 360f * angleRatio.value,
+          sweepAngle = 360f * (angleRatio.value),
           useCenter = false,
           size = size,
           style = Stroke(
