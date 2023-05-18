@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import dagger.hilt.android.AndroidEntryPoint
+import me.darthwithap.android.calorie_tracker.core.domain.preferences.Preferences
 import me.darthwithap.android.calorie_tracker.core.navigation.Route
 import me.darthwithap.android.calorie_tracker.navigation.navigate
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.activity.ActivityLevelScreen
@@ -27,11 +28,18 @@ import me.darthwithap.android.calorie_tracker.onboarding_presentation.welcome.We
 import me.darthwithap.android.calorie_tracker.tracker_presentation.search.SearchScreen
 import me.darthwithap.android.calorie_tracker.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import me.darthwithap.android.calorie_tracker.ui.theme.CalorieTrackerTheme
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+  @Inject
+  lateinit var prefs: Preferences
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    val shouldShowOnboarding = prefs.loadShouldShowOnboarding()
+
     setContent {
       CalorieTrackerTheme {
         val navController = rememberNavController()
@@ -43,7 +51,7 @@ class MainActivity : ComponentActivity() {
             NavHost(
               modifier = Modifier.padding(padding),
               navController = navController,
-              startDestination = Route.Welcome
+              startDestination = if (shouldShowOnboarding) Route.Welcome else Route.TrackerOverview
             ) {
               composable(Route.Activity) {
                 ActivityLevelScreen(onNavigate = navController::navigate)
