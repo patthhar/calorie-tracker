@@ -43,7 +43,7 @@ class WeightViewModel @Inject constructor(
         return@launch
       }
       prefs.saveWeight(weightNumber)
-      _uiEvent.send(UiEvent.Navigate(Route.Activity))
+      _uiEvent.send(UiEvent.NavigateOnSuccess)
     }
   }
 }

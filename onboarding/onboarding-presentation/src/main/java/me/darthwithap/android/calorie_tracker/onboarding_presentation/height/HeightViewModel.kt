@@ -45,7 +45,7 @@ class HeightViewModel @Inject constructor(
         return@launch
       }
       prefs.saveHeight(heightNumber)
-      _uiEvent.send(UiEvent.Navigate(Route.Weight))
+      _uiEvent.send(UiEvent.NavigateOnSuccess)
     }
   }
 }

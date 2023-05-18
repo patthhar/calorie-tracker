@@ -33,7 +33,7 @@ class ActivityLevelViewModel @Inject constructor(
     viewModelScope.launch {
       prefs.saveActivityLevel(selectedActivity)
       // TODO: Add OnSuccess callback that will be passed in the Activity and then navigate
-      _uiEvent.send(UiEvent.Navigate(Route.Goal))
+      _uiEvent.send(UiEvent.NavigateOnSuccess)
     }
   }
 

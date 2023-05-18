@@ -13,7 +13,6 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import me.darthwithap.android.calorie_tracker.core.domain.preferences.Preferences
-import me.darthwithap.android.calorie_tracker.core.navigation.Route
 import me.darthwithap.android.calorie_tracker.core.util.UiEvent
 import me.darthwithap.android.calorie_tracker.tracker_domain.usecases.TrackerDomainUseCases
 import javax.inject.Inject
@@ -40,20 +39,6 @@ class TrackerOverviewViewModel @Inject constructor(
 
   fun onEvent(event: TrackerOverviewEvent) {
     when (event) {
-      is TrackerOverviewEvent.OnAddFoodClick -> {
-        viewModelScope.launch {
-          _uiEvent.send(
-            UiEvent.Navigate(
-              route = Route.Search
-                  + "/${event.meal.mealType.name}"
-                  + "/${state.date.dayOfMonth}"
-                  + "/${state.date.monthValue}"
-                  + "/${state.date.year}"
-            )
-          )
-        }
-      }
-
       is TrackerOverviewEvent.OnDeleteFoodClick -> {
         viewModelScope.launch {
           trackerDomainUseCases.deleteTrackedFood

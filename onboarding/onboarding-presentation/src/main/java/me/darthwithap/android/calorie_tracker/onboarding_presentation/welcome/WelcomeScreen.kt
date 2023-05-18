@@ -16,7 +16,7 @@ import me.darthwithap.android.calorie_tracker.onboarding_presentation.components
 
 @Composable
 fun WelcomeScreen(
-  onNavigate: (UiEvent.Navigate) -> Unit
+  onNextClick: () -> Unit
 ) {
   val dimens = LocalDimensions.current
   Column(
@@ -43,7 +43,7 @@ fun WelcomeScreen(
       textPadding = dimens.small,
       isEnabled = true
     ) {
-      onNavigate(UiEvent.Navigate(Route.Gender))
+      onNextClick()
     }
   }
 }

@@ -45,7 +45,7 @@ class AgeViewModel @Inject constructor(
         return@launch
       }
       prefs.saveAge(ageNumber)
-      _uiEvent.send(UiEvent.Navigate(Route.Height))
+      _uiEvent.send(UiEvent.NavigateOnSuccess)
     }
   }
 }

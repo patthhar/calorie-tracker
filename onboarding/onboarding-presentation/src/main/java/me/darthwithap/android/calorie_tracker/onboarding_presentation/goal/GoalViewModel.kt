@@ -33,7 +33,7 @@ class GoalViewModel @Inject constructor(
     viewModelScope.launch {
       prefs.saveGoalType(selectedGoal)
       // TODO: Add OnSuccess callback that will be passed in the Activity and then navigate
-      _uiEvent.send(UiEvent.Navigate(Route.NutrientGoal))
+      _uiEvent.send(UiEvent.NavigateOnSuccess)
     }
   }
 

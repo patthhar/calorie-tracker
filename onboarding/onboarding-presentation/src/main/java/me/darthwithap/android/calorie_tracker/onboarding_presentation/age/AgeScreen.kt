@@ -21,7 +21,7 @@ import me.darthwithap.android.calorie_tracker.onboarding_presentation.components
 fun AgeScreen(
   scaffoldState: ScaffoldState,
   viewModel: AgeViewModel = hiltViewModel(),
-  onNavigate: (UiEvent.Navigate) -> Unit
+  onNextClick: () -> Unit
 ) {
   val context = LocalContext.current
   val dimens = LocalDimensions.current
@@ -29,8 +29,8 @@ fun AgeScreen(
   LaunchedEffect(key1 = true) {
     viewModel.uiEvent.collect { event ->
       when (event) {
-        is UiEvent.Navigate -> {
-          onNavigate(event)
+        is UiEvent.NavigateOnSuccess -> {
+          onNextClick()
         }
         is UiEvent.ShowSnackBar -> {
           scaffoldState.snackbarHostState.showSnackbar(event.msg.asString(context))
