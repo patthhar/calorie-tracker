@@ -2,7 +2,6 @@ package me.darthwithap.android.calorie_tracker.tracker_data.repository
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import me.darthwithap.android.calorie_tracker.tracker_data.local.TrackerDao
 import me.darthwithap.android.calorie_tracker.tracker_data.local.TrackerDatabase
 import me.darthwithap.android.calorie_tracker.tracker_data.mapper.toEntity
 import me.darthwithap.android.calorie_tracker.tracker_data.mapper.toTrackableFood
@@ -16,7 +15,7 @@ import javax.inject.Inject
 
 class TrackerRepositoryImpl @Inject constructor(
   private val api: OpenFoodApi,
-  private val db: TrackerDatabase
+  db: TrackerDatabase
 ) : TrackerRepository {
   private val dao = db.dao
   override suspend fun searchFood(

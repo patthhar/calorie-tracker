@@ -32,7 +32,6 @@ object TrackerDomainModule {
     return DailyCaloriesRequirement(calculateBmr)
   }
 
-
   @Provides
   @ViewModelScoped
   fun provideTrackerDomainUseCases(
@@ -46,6 +45,7 @@ object TrackerDomainModule {
       searchFood = SearchFood(repository),
       getFoodsForDate = GetFoodsForDate(repository),
       deleteTrackedFood = DeleteTrackedFood(repository),
+      calculateBmr = calculateBmr,
       calculateMealNutrients = CalculateMealNutrients(
         preferences,
         dailyCaloriesRequirement

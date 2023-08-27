@@ -16,6 +16,7 @@ interface TrackerDao {
   @Delete
   suspend fun deleteTrackedFood(trackedFoodEntity: TrackedFoodEntity)
 
+
   @Query(
     """
       SELECT * FROM trackedfoodentity

@@ -59,7 +59,8 @@ fun TrackerOverviewScreen(
               .fillMaxWidth()
               .padding(horizontal = dimens.xs)
           ) {
-            state.trackedFoods.forEach { food ->
+            val foodsForMeal = state.trackedFoods.filter { it.mealType == meal.mealType }
+            foodsForMeal.forEach { food ->
               TrackedFoodItem(trackedFood = food, onDeleteClick = {
                 viewModel.onEvent(TrackerOverviewEvent.OnDeleteFoodClick(food))
               })
@@ -69,7 +70,7 @@ fun TrackerOverviewScreen(
               text = stringResource(id = R.string.add_meal, meal.name.asString(context)),
               onClick = {
                 onNavigateToSearch(
-                  meal.name.asString(context),
+                  meal.name.asString(context).lowercase(),
                   state.date.dayOfMonth,
                   state.date.monthValue,
                   state.date.year

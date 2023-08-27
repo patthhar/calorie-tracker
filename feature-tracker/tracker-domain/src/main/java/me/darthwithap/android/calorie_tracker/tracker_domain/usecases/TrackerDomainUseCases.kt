@@ -5,5 +5,6 @@ data class TrackerDomainUseCases(
   val searchFood: SearchFood,
   val getFoodsForDate: GetFoodsForDate,
   val deleteTrackedFood: DeleteTrackedFood,
+  val calculateBmr: CalculateBmr,
   val calculateMealNutrients: CalculateMealNutrients
 )
