@@ -34,7 +34,7 @@ fun WelcomeScreen(
     Text(
       text = stringResource(id = R.string.welcome_text),
       textAlign = TextAlign.Center,
-      style = MaterialTheme.typography.h2
+      style = MaterialTheme.typography.h3
     )
     Spacer(modifier = Modifier.height(dimens.big))
     OutlinedActionButton(

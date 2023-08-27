@@ -32,13 +32,14 @@ fun AddButton(
 
   val dimens = LocalDimensions.current
   Row(modifier = modifier
+    .padding(horizontal = dimens.big)
     .clip(RoundedCornerShape(100f))
     .clickable { onClick() }
     .border(
-      width = dimens.min, color = color,
+      width = dimens.xs, color = color,
       shape = RoundedCornerShape(100f)
     )
-    .padding(dimens.medium),
+    .padding(dimens.base),
     horizontalArrangement = Arrangement.Center,
     verticalAlignment = Alignment.CenterVertically
   ) {
@@ -47,6 +48,10 @@ fun AddButton(
       tint = color
     )
     Spacer(modifier = Modifier.width(dimens.medium))
-    Text(text = text, style = MaterialTheme.typography.button, color = color)
+    Text(
+      text = text,
+      style = MaterialTheme.typography.h3,
+      color = color
+    )
   }
 }

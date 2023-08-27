@@ -1,6 +1,14 @@
 package me.darthwithap.android.calorie_tracker.onboarding_presentation.gender
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -15,6 +23,7 @@ import me.darthwithap.android.calorie_tracker.core.R
 import me.darthwithap.android.calorie_tracker.core.domain.models.Gender
 import me.darthwithap.android.calorie_tracker.core.util.UiEvent
 import me.darthwithap.android.calorie_tracker.core_ui.LocalDimensions
+import me.darthwithap.android.calorie_tracker.core_ui.TextSizes
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.components.OutlinedActionButton
 import me.darthwithap.android.calorie_tracker.onboarding_presentation.components.SelectableButton
 
@@ -24,6 +33,7 @@ fun GenderScreen(
   onNextClick: () -> Unit
 ) {
   val dimens = LocalDimensions.current
+  val textSizes = TextSizes.current
 
   LaunchedEffect(key1 = true) {
     viewModel.uiEvent.collect { event ->
@@ -31,6 +41,7 @@ fun GenderScreen(
         is UiEvent.NavigateOnSuccess -> {
           onNextClick()
         }
+
         else -> { /*do nothing*/
         }
       }
@@ -58,17 +69,21 @@ fun GenderScreen(
           color = MaterialTheme.colors.primary,
           selectedTextColor = Color.White,
           isSelected = viewModel.selectedGender is Gender.Male,
-          textStyle = MaterialTheme.typography.button.copy(fontWeight = FontWeight.Medium)
+          textStyle = MaterialTheme.typography.button.copy(
+            fontWeight = FontWeight.Medium
+          )
         ) {
           viewModel.onGenderClick(Gender.Male)
         }
-        Spacer(modifier = Modifier.width(dimens.small))
+        Spacer(modifier = Modifier.width(dimens.base))
         SelectableButton(
           text = stringResource(id = R.string.female),
           color = MaterialTheme.colors.primary,
           selectedTextColor = Color.White,
           isSelected = viewModel.selectedGender is Gender.Female,
-          textStyle = MaterialTheme.typography.button.copy(fontWeight = FontWeight.Medium)
+          textStyle = MaterialTheme.typography.button.copy(
+            fontWeight = FontWeight.Medium
+          )
         ) {
           viewModel.onGenderClick(Gender.Female)
         }
@@ -76,7 +91,7 @@ fun GenderScreen(
     }
     OutlinedActionButton(
       modifier = Modifier
-        .padding(end = dimens.medium, bottom = dimens.medium)
+        .padding(end = dimens.big, bottom = dimens.big)
         .align(Alignment.BottomEnd),
       text = stringResource(id = R.string.next),
       isEnabled = true,

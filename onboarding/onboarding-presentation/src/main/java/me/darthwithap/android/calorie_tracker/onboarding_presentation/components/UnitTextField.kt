@@ -24,7 +24,7 @@ fun UnitTextField(
   unit: String,
   textStyle: TextStyle = LocalTextStyle.current.copy(
     color = MaterialTheme.colors.primaryVariant,
-    fontSize = TextSizes.current.enormous,
+    fontSize = TextSizes.current.huge,
     textAlign = TextAlign.Center
   ),
   onValueChange: (String) -> Unit
@@ -45,7 +45,7 @@ fun UnitTextField(
         .width(IntrinsicSize.Min)
         .alignBy(LastBaseline)
     )
-    Spacer(modifier = Modifier.width(dimens.xs))
+    Spacer(modifier = Modifier.width(dimens.small))
     Text(text = unit, modifier = Modifier.alignBy(LastBaseline))
   }
 }

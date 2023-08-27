@@ -57,7 +57,7 @@ fun NutrientsHeader(
         amountColor = MaterialTheme.colors.onPrimary,
         amountTextSize = textSizes.xxl,
         unitColor = MaterialTheme.colors.onPrimary,
-        unitTextSize = textSizes.base,
+        unitTextSize = textSizes.small,
         modifier = Modifier.align(Alignment.Bottom)
       )
       Column {
@@ -71,11 +71,11 @@ fun NutrientsHeader(
           amountColor = MaterialTheme.colors.onPrimary,
           amountTextSize = textSizes.xxl,
           unitColor = MaterialTheme.colors.onPrimary,
-          unitTextSize = textSizes.base
+          unitTextSize = textSizes.small
         )
       }
     }
-    Spacer(modifier = Modifier.height(dimens.small))
+    Spacer(modifier = Modifier.height(dimens.regular))
     NutrientsBar(
       carbs = state.totalCarbs,
       protein = state.totalProtein,
@@ -84,9 +84,9 @@ fun NutrientsHeader(
       caloriesGoal = state.caloriesGoal,
       modifier = Modifier
         .fillMaxWidth()
-        .height(30.dp)
+        .height(20.dp)
     )
-    Spacer(modifier = Modifier.height(dimens.xl))
+    Spacer(modifier = Modifier.height(dimens.large))
     Row(
       modifier = Modifier.fillMaxWidth(),
       horizontalArrangement = Arrangement.SpaceBetween

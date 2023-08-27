@@ -3,7 +3,7 @@ package me.darthwithap.android.calorie_tracker.tracker_domain.models
 sealed class MealType(val name: String) {
   object Breakfast : MealType("breakfast")
   object Lunch : MealType("lunch")
-  object Snack : MealType("snack")
+  object Snacks : MealType("snacks")
   object Dinner : MealType("dinner")
 
   companion object {
@@ -11,7 +11,7 @@ sealed class MealType(val name: String) {
       return when (name) {
         "breakfast" -> Breakfast
         "lunch" -> Lunch
-        "snacks" -> Snack
+        "snacks" -> Snacks
         "dinner" -> Dinner
         else -> Breakfast
       }

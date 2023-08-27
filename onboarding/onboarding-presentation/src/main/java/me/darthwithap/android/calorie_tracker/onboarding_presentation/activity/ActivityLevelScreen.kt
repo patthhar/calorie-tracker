@@ -62,7 +62,7 @@ fun ActivityLevelScreen(
         ) {
           viewModel.onActivityLevelClick(ActivityLevel.Low)
         }
-        Spacer(modifier = Modifier.width(dimens.small))
+        Spacer(modifier = Modifier.width(dimens.regular))
         SelectableButton(
           text = stringResource(id = R.string.medium),
           color = MaterialTheme.colors.primary,
@@ -72,7 +72,7 @@ fun ActivityLevelScreen(
         ) {
           viewModel.onActivityLevelClick(ActivityLevel.Medium)
         }
-        Spacer(modifier = Modifier.width(dimens.small))
+        Spacer(modifier = Modifier.width(dimens.regular))
         SelectableButton(
           text = stringResource(id = R.string.high),
           color = MaterialTheme.colors.primary,
@@ -86,7 +86,7 @@ fun ActivityLevelScreen(
     }
     OutlinedActionButton(
       modifier = Modifier
-        .padding(end = dimens.medium, bottom = dimens.medium)
+        .padding(end = dimens.big, bottom = dimens.big)
         .align(Alignment.BottomEnd),
       text = stringResource(id = R.string.next),
       isEnabled = true,

@@ -21,12 +21,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.capitalize
+import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import me.darthwithap.android.calorie_tracker.core.R
 import me.darthwithap.android.calorie_tracker.core.util.UiEvent
 import me.darthwithap.android.calorie_tracker.core_ui.LocalDimensions
-import me.darthwithap.android.calorie_tracker.core_ui.TextSizes
 import me.darthwithap.android.calorie_tracker.tracker_domain.models.MealType
 import me.darthwithap.android.calorie_tracker.tracker_presentation.search.components.SearchTextField
 import me.darthwithap.android.calorie_tracker.tracker_presentation.search.components.TrackableFoodItem
@@ -44,7 +45,6 @@ fun SearchScreen(
   onNavigateUp: () -> Unit
 ) {
   val dimens = LocalDimensions.current
-  val textSizes = TextSizes.current
   val context = LocalContext.current
   val state = viewModel.state
   val keyboardController = LocalSoftwareKeyboardController.current
@@ -71,7 +71,7 @@ fun SearchScreen(
       .padding(dimens.medium)
   ) {
     Text(
-      text = stringResource(id = R.string.add_meal, mealName),
+      text = stringResource(id = R.string.add_meal, mealName.capitalize(Locale.current)),
       style = MaterialTheme.typography.h2
     )
     Spacer(modifier = Modifier.height(dimens.medium))

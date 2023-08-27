@@ -1,6 +1,7 @@
 package me.darthwithap.android.calorie_tracker.tracker_presentation.tracker_overview
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.scaleIn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -23,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import me.darthwithap.android.calorie_tracker.core.R
 import me.darthwithap.android.calorie_tracker.core_ui.LocalDimensions
 import me.darthwithap.android.calorie_tracker.core_ui.TextSizes
@@ -49,13 +52,17 @@ fun ExpandableMeal(
       verticalAlignment = Alignment.CenterVertically
     ) {
       Image(
+        modifier = Modifier.size(dimens.enormous),
         painter = painterResource(id = meal.drawableRes),
         contentDescription = meal.name.asString(context)
       )
       Spacer(modifier = Modifier.width(dimens.medium))
       Column(modifier = Modifier.weight(1f)) {
         Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-          Text(text = meal.name.asString(context), style = MaterialTheme.typography.h3)
+          Text(
+            text = meal.name.asString(context),
+            style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.SemiBold)
+          )
           Icon(
             imageVector = if (meal.isExpanded) Icons.Default.KeyboardArrowUp
             else Icons.Default.KeyboardArrowDown,
@@ -73,12 +80,13 @@ fun ExpandableMeal(
           UnitDisplay(
             amount = meal.calories,
             unit = stringResource(R.string.kcal),
-            amountTextSize = textSizes.xl
+            amountTextSize = textSizes.large
           )
           Row {
             NutrientInfo(
               name = stringResource(id = R.string.carbs),
               amount = meal.carbs,
+              amountTextSize = textSizes.mediumBig,
               unit = stringResource(
                 id = R.string.grams
               )
@@ -87,6 +95,7 @@ fun ExpandableMeal(
             NutrientInfo(
               name = stringResource(id = R.string.protein),
               amount = meal.protein,
+              amountTextSize = textSizes.mediumBig,
               unit = stringResource(
                 id = R.string.grams
               )
@@ -95,6 +104,7 @@ fun ExpandableMeal(
             NutrientInfo(
               name = stringResource(id = R.string.fat),
               amount = meal.fat,
+              amountTextSize = textSizes.mediumBig,
               unit = stringResource(
                 id = R.string.grams
               )

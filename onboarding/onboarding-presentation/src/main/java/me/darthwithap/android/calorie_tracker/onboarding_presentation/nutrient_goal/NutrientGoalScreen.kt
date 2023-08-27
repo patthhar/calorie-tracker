@@ -57,6 +57,7 @@ fun NutrientGoalScreen(
       )
       Spacer(modifier = Modifier.height(dimens.medium))
       UnitTextField(
+        modifier = Modifier.padding(dimens.regular),
         value = viewModel.state.carbPercentage,
         unit = stringResource(id = R.string.percent_carbs),
         onValueChange = {
@@ -65,6 +66,7 @@ fun NutrientGoalScreen(
       )
       Spacer(modifier = Modifier.height(dimens.medium))
       UnitTextField(
+        modifier = Modifier.padding(dimens.regular),
         value = viewModel.state.proteinPercentage,
         unit = stringResource(id = R.string.percent_proteins),
         onValueChange = {
@@ -73,6 +75,7 @@ fun NutrientGoalScreen(
       )
       Spacer(modifier = Modifier.height(dimens.medium))
       UnitTextField(
+        modifier = Modifier.padding(dimens.regular),
         value = viewModel.state.fatPercentage,
         unit = stringResource(id = R.string.percent_fats),
         onValueChange = {
@@ -82,7 +85,7 @@ fun NutrientGoalScreen(
     }
     OutlinedActionButton(
       modifier = Modifier
-        .padding(end = dimens.medium, bottom = dimens.medium)
+        .padding(end = dimens.big, bottom = dimens.big)
         .align(Alignment.BottomEnd),
       text = stringResource(id = R.string.next),
       isEnabled = true,

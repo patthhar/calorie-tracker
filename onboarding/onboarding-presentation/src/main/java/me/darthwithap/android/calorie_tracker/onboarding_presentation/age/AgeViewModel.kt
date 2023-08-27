@@ -44,6 +44,14 @@ class AgeViewModel @Inject constructor(
         )
         return@launch
       }
+      if (ageNumber <= 0) {
+        _uiEvent.send(
+          UiEvent.ShowSnackBar(
+            UiText.StringResource(R.string.error_age_cant_be_negative)
+          )
+        )
+        return@launch
+      }
       prefs.saveAge(ageNumber)
       _uiEvent.send(UiEvent.NavigateOnSuccess)
     }

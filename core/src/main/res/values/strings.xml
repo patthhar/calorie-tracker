@@ -13,6 +13,7 @@
   <string name="kg">kg</string>
   <string name="cm">cm</string>
   <string name="error_age_cant_be_empty">The age can\'t be empty</string>
+  <string name="error_age_cant_be_negative">The age can\'t be less than 1</string>
   <string name="error_height_cant_be_empty">The height can\'t be empty</string>
   <string name="error_weight_cant_be_empty">The weight can\'t be empty</string>
   <string name="kcal">kcal</string>
@@ -37,7 +38,7 @@
   <string name="search">Search…</string>
   <string name="today">Today</string>
   <string name="recent">Recent</string>
-  <string name="kcal_per_100g">%dkcal / 100g</string>
+  <string name="kcal_per_100g">%d kcal / 100g</string>
   <string name="track">Track</string>
   <string name="error_something_went_wrong">Oops, something went wrong!</string>
   <string name="no_results">No results</string>

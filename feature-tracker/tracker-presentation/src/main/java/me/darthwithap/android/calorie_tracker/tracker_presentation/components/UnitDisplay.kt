@@ -28,7 +28,7 @@ fun UnitDisplay(
   Row(modifier = modifier) {
     Text(
       text = amount.toString(),
-      style = MaterialTheme.typography.h1,
+      style = MaterialTheme.typography.h2,
       fontSize = amountTextSize,
       color = amountColor,
       modifier = Modifier.alignBy(LastBaseline)

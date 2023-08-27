@@ -57,6 +57,7 @@ fun WeightScreen(
       )
       Spacer(modifier = Modifier.height(dimens.medium))
       UnitTextField(
+        modifier = Modifier.padding(dimens.regular),
         value = viewModel.weight,
         unit = stringResource(id = R.string.kg),
         onValueChange = viewModel::onWeightEnter
@@ -64,7 +65,7 @@ fun WeightScreen(
     }
     OutlinedActionButton(
       modifier = Modifier
-        .padding(end = dimens.medium, bottom = dimens.medium)
+        .padding(end = dimens.big, bottom = dimens.big)
         .align(Alignment.BottomEnd),
       text = stringResource(id = R.string.next),
       isEnabled = true,

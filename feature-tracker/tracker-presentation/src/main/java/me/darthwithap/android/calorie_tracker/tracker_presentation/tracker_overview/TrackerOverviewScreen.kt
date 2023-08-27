@@ -38,16 +38,16 @@ fun TrackerOverviewScreen(
   ) {
     item {
       NutrientsHeader(state = state)
-      Spacer(modifier = Modifier.height(dimens.medium))
+      Spacer(modifier = Modifier.height(dimens.base))
       DaySelector(
         date = state.date,
         onPreviousDayClick = { viewModel.onEvent(TrackerOverviewEvent.OnPreviousDayClick) },
         onNextDayClick = { viewModel.onEvent(TrackerOverviewEvent.OnNextDayClick) },
         modifier = Modifier
           .fillMaxWidth()
-          .padding(horizontal = dimens.medium)
+          .padding(horizontal = dimens.big)
       )
-      Spacer(modifier = Modifier.height(dimens.medium))
+      Spacer(modifier = Modifier.height(dimens.base))
     }
     items(state.meals) { meal ->
       ExpandableMeal(
@@ -64,7 +64,7 @@ fun TrackerOverviewScreen(
               TrackedFoodItem(trackedFood = food, onDeleteClick = {
                 viewModel.onEvent(TrackerOverviewEvent.OnDeleteFoodClick(food))
               })
-              Spacer(modifier = Modifier.height(dimens.xs))
+              Spacer(modifier = Modifier.height(dimens.small))
             }
             AddButton(
               text = stringResource(id = R.string.add_meal, meal.name.asString(context)),

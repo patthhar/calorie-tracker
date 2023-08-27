@@ -60,7 +60,7 @@ fun TrackableFoodItem(
   Column(
     modifier = modifier
       .clip(RoundedCornerShape(dimens.regular))
-      .padding(dimens.xs)
+      .padding(dimens.regular)
       .shadow(elevation = dimens.min, shape = RoundedCornerShape(dimens.regular))
       .background(MaterialTheme.colors.surface)
       .clickable { onClick() }
@@ -69,7 +69,7 @@ fun TrackableFoodItem(
     Row(
       modifier = Modifier.fillMaxWidth(),
       horizontalArrangement = Arrangement.SpaceBetween,
-      verticalAlignment = Alignment.CenterVertically
+      verticalAlignment = CenterVertically
     ) {
       Row(modifier = Modifier.weight(1f)) {
         Image(
@@ -81,7 +81,7 @@ fun TrackableFoodItem(
           contentDescription = food.name,
           contentScale = ContentScale.Crop,
           modifier = Modifier
-            .size(dimens.huge)
+            .size(dimens.tripleXL)
             .clip(RoundedCornerShape(topStart = dimens.regular))
         )
         Spacer(modifier = Modifier.width(dimens.medium))

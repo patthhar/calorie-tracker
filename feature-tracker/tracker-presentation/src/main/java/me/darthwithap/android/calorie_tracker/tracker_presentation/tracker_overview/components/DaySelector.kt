@@ -34,7 +34,7 @@ fun DaySelector(
         contentDescription = stringResource(id = R.string.previous_day)
       )
     }
-    Text(text = parseDateText(date = date), style = MaterialTheme.typography.h2)
+    Text(text = parseDateText(date = date), style = MaterialTheme.typography.h3)
     IconButton(onClick = onNextDayClick) {
       Icon(
         imageVector = Icons.Default.ArrowForward,

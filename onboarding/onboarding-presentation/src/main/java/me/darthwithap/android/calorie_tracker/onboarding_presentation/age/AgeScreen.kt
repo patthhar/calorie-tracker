@@ -57,6 +57,7 @@ fun AgeScreen(
       )
       Spacer(modifier = Modifier.height(dimens.medium))
       UnitTextField(
+        modifier = Modifier.padding(dimens.regular),
         value = viewModel.age,
         unit = stringResource(id = R.string.years),
         onValueChange = viewModel::onAgeEnter
@@ -64,7 +65,7 @@ fun AgeScreen(
     }
     OutlinedActionButton(
       modifier = Modifier
-        .padding(end = dimens.medium, bottom = dimens.medium)
+        .padding(end = dimens.big, bottom = dimens.big)
         .align(Alignment.BottomEnd),
       text = stringResource(id = R.string.next),
       isEnabled = true,

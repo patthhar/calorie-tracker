@@ -18,8 +18,9 @@ data class Dimensions(
   val large: Dp = 24.dp,
   val xl: Dp = 32.dp,
   val xxl: Dp = 48.dp,
+  val tripleXL: Dp = 56.dp,
   val enormous: Dp = 64.dp,
-  val huge: Dp = 88.dp,
+  val huge: Dp = 72.dp,
 )
 
 data class TextDimensions(
@@ -27,6 +28,7 @@ data class TextDimensions(
   val small: TextUnit = 12.sp,
   val base: TextUnit = 14.sp,
   val medium: TextUnit = 16.sp,
+  val mediumBig: TextUnit = 18.sp,
   val big: TextUnit = 20.sp,
   val large: TextUnit = 24.sp,
   val xl: TextUnit = 26.sp,
